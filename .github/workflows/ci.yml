@@ -1,0 +1,30 @@
+name: ci
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1' # weekly link check
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Plugin self-check (both harnesses, offline rules)
+        run: node scripts/check-plugin.mjs
+      - name: Script tests
+        run: |
+          if ls scripts/tests/*.test.mjs >/dev/null 2>&1; then node --test scripts/tests/*.test.mjs; else echo "no script tests"; fi
+  links:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Reference library links
+        run: |
+          if [ -f scripts/check-links.mjs ]; then node scripts/check-links.mjs; else echo "no link checker in this plugin"; fi

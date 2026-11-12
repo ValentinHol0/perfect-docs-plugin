@@ -1,0 +1,186 @@
+{
+  "sheets": [
+    {
+      "name": "Кошторис",
+      "title": "Кошторис робіт — листопад 2026",
+      "inputs": [
+        {
+          "name": "vat_rate",
+          "label": "Ставка ПДВ",
+          "value": 0.2,
+          "type": "percent",
+          "note": "0 — якщо виконавець не платник ПДВ"
+        }
+      ],
+      "columns": [
+        {
+          "key": "n",
+          "header": "№",
+          "type": "int",
+          "width": 5
+        },
+        {
+          "key": "name",
+          "header": "Найменування",
+          "type": "text",
+          "width": 42
+        },
+        {
+          "key": "unit",
+          "header": "Од.",
+          "type": "text",
+          "width": 10,
+          "validation": [
+            "год",
+            "шт",
+            "послуга",
+            "міс."
+          ]
+        },
+        {
+          "key": "qty",
+          "header": "Кількість",
+          "type": "number",
+          "width": 11,
+          "validation": {
+            "min": 0
+          }
+        },
+        {
+          "key": "price",
+          "header": "Ціна, грн",
+          "type": "money",
+          "width": 14,
+          "validation": {
+            "min": 0
+          }
+        },
+        {
+          "key": "sum",
+          "header": "Сума, грн",
+          "type": "money",
+          "width": 16,
+          "formula": "=ROUND([qty]*[price],2)"
+        }
+      ],
+      "rows": [
+        {
+          "n": 1,
+          "name": "Дизайн лендингу",
+          "unit": "послуга",
+          "qty": 1,
+          "price": 15000
+        },
+        {
+          "n": 2,
+          "name": "Верстка",
+          "unit": "год",
+          "qty": 12.5,
+          "price": 800
+        },
+        {
+          "n": 3,
+          "name": "Налаштування аналітики",
+          "unit": "послуга",
+          "qty": 1,
+          "price": 2345.56
+        }
+      ],
+      "totals": {
+        "label": "Разом",
+        "sum": "SUM"
+      },
+      "summary": [
+        {
+          "key": "vat",
+          "label": "ПДВ",
+          "formula": "=ROUND({sum}*vat_rate,2)",
+          "type": "money"
+        },
+        {
+          "key": "grand",
+          "label": "Усього до сплати",
+          "formula": "={sum}+{vat}",
+          "type": "money",
+          "bold": true,
+          "define": "grand_total"
+        }
+      ],
+      "chart": {
+        "type": "bar",
+        "title": "Вартість за статтями, грн",
+        "categories": "name",
+        "values": [
+          "sum"
+        ]
+      },
+      "print": {
+        "orientation": "portrait"
+      }
+    },
+    {
+      "name": "Графік оплат",
+      "columns": [
+        {
+          "key": "due",
+          "header": "Дата",
+          "type": "date",
+          "width": 12
+        },
+        {
+          "key": "stage",
+          "header": "Етап",
+          "type": "text",
+          "width": 30,
+          "validation": [
+            "Аванс",
+            "Проміжний платіж, етап 1",
+            "Проміжний платіж, етап 2",
+            "Остаточний розрахунок"
+          ]
+        },
+        {
+          "key": "share",
+          "header": "Частка",
+          "type": "percent",
+          "width": 10,
+          "validation": {
+            "min": 0,
+            "max": 1
+          }
+        },
+        {
+          "key": "amount",
+          "header": "Сума, грн",
+          "type": "uah",
+          "width": 18,
+          "formula": "=ROUND([share]*grand_total,2)"
+        }
+      ],
+      "rows": [
+        {
+          "due": "2026-11-15",
+          "stage": "Аванс",
+          "share": 0.3
+        },
+        {
+          "due": "2026-11-25",
+          "stage": "Проміжний платіж, етап 1",
+          "share": 0.3
+        },
+        {
+          "due": "2026-12-01",
+          "stage": "Остаточний розрахунок",
+          "share": 0.4,
+          "formulas": {
+            "amount": "=grand_total-SUM([amount:above])"
+          }
+        }
+      ],
+      "totals": {
+        "share": "SUM",
+        "amount": "SUM"
+      }
+    }
+  ]
+}

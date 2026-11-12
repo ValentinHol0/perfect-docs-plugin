@@ -1,0 +1,25 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "perfect-docs-plugin",
+  "displayName": "Perfect Docs",
+  "version": "1.0.0",
+  "description": "Office files that look professional and calculate correctly: DOCX, XLSX, PPTX, PDF and HTML slide decks, with Ukrainian business templates (contracts, invoices, acts, waybills, commercial proposals, reports), exact totals, VAT and amounts in words from tested scripts, sourced required fields and an independent proofreader.",
+  "keywords": [
+    "perfect-suite",
+    "addon",
+    "docs",
+    "docx",
+    "xlsx",
+    "pptx",
+    "pdf",
+    "office",
+    "invoice",
+    "ukraine"
+  ],
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Зроби акт наданих послуг у Word для ТОВ за жовтень із сумою прописом",
+    "Створи Excel-кошторис із формулами, ПДВ і графіком оплат",
+    "Підготуй презентацію підсумків року на 10 слайдів із нотатками доповідача"
+  ]
+}

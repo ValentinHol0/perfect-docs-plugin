@@ -1,0 +1,17 @@
+{
+  "name": "perfect-docs-plugin",
+  "owner": {
+    "name": "Perfect Suite"
+  },
+  "metadata": {
+    "description": "Office files that look professional and calculate correctly: DOCX, XLSX, PPTX, PDF and HTML slide decks, with Ukrainian business templates (contracts, invoices, acts, waybills, commercial proposals, reports), exact totals, VAT and amounts in words from tested scripts, sourced required fields and an independent proofreader."
+  },
+  "plugins": [
+    {
+      "name": "perfect-docs-plugin",
+      "source": "./",
+      "description": "Office files that look professional and calculate correctly: DOCX, XLSX, PPTX, PDF and HTML slide decks, with Ukrainian business templates (contracts, invoices, acts, waybills, commercial proposals, reports), exact totals, VAT and amounts in words from tested scripts, sourced required fields and an independent proofreader.",
+      "version": "1.0.0"
+    }
+  ]
+}

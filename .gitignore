@@ -1,0 +1,7 @@
+node_modules/
+__pycache__/
+*.pyc
+.visual-review/
+evals/results/
+.DS_Store
+Thumbs.db

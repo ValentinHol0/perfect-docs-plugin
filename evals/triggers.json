@@ -1,0 +1,11 @@
+[
+  { "query": "Зроби акт наданих послуг № 27 у Word для ТОВ «Альфа» за жовтень: три позиції, ми не платники ПДВ", "expect": "docs-templates" },
+  { "query": "Create an Excel budget with real formulas, the VAT rate as a separate input, a chart and A4 print setup", "expect": "docs-xlsx" },
+  { "query": "Потрібна презентація PowerPoint на 10 слайдів про підсумки року з нотатками доповідача", "expect": "docs-pptx" },
+  { "query": "Make an HTML slide deck for my conference talk that works with the keyboard and exports to PDF", "expect": "docs-pptx" },
+  { "query": "Об’єднай ці три PDF в один і витягни таблиці з другого файлу, щоб потім перенести в Excel", "expect": "docs-pdf" },
+  { "query": "Оформи наказ про відпустку за ДСТУ 4163:2020 у форматі DOCX", "expect": "docs-docx" },
+  { "query": "I need a professional Word document and a PDF version of our company price list", "expect": "office" },
+  { "query": "Яку групу єдиного податку обрати ФОПу-дизайнеру з доходом 2 млн грн на рік?", "expect": null },
+  { "query": "Build a web app that generates invoices from our CRM automatically and emails them to clients", "expect": null }
+]
