@@ -45,8 +45,8 @@ Sources: `skills/docs-templates/references/legal-basis.md` (checked 2026-11-12) 
 Without a sibling installed, the addon writes a brief to `.planning/handoff-docs-to-<addon>.md` and names the addon to install.
 
 ## Install
-- Claude Code: `/plugin marketplace add <path-or-owner/repo>` → `/plugin install perfect-docs-plugin@perfect-docs-plugin`, or through the Perfect Suite hub marketplace.
-- Antigravity: `agy plugin install <path-or-github-url>`.
+- Claude Code: `/plugin marketplace add ValentinHol0/perfect-docs-plugin` → `/plugin install perfect-docs-plugin@perfect-docs-plugin`, or through the Perfect Suite hub: `/plugin marketplace add ValentinHol0/perfect-hub` → `/plugin install perfect-docs-plugin@perfect-suite`.
+- Antigravity: `agy plugin install https://github.com/ValentinHol0/perfect-docs-plugin` (or a local folder path).
 - Optional Python libraries for the generators: `pip install python-docx openpyxl python-pptx pypdf pdfplumber`.
 
 ## Develop
